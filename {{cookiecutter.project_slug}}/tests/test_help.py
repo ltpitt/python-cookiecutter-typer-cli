@@ -1,9 +1,8 @@
-from click.testing import CliRunner
-from {{cookiecutter.project_slug}} import app
+from typer.testing import CliRunner
+from {{cookiecutter.project_slug}}.main import app
 
 
 def test_help():
-    runner = CliRunner()
-    result = runner.invoke(app.{{cookiecutter.cli_command}})
+    result = runner.invoke(app, ["--help"])
     assert result.exit_code == 0
     assert "Usage: " in result.output
