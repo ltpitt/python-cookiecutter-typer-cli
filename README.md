@@ -1,1 +1,1 @@
-# cookiecutter-python-typer-cli-
+# cookiecutter-python-typer-cli
