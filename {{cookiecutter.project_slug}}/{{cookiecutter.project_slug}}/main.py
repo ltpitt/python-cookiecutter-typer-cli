@@ -14,3 +14,5 @@ def {{cookiecutter.cli_command}}():
     app()
 
 
+if __name__ == "__main__":
+    app()
