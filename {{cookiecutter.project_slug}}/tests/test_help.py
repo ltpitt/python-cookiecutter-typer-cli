@@ -1,6 +1,8 @@
 from typer.testing import CliRunner
 from {{cookiecutter.project_slug}}.main import app
 
+runner = CliRunner()
+
 
 def test_help():
     result = runner.invoke(app, ["--help"])
