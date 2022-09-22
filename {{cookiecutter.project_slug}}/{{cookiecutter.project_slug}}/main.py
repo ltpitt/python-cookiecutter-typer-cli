@@ -5,7 +5,7 @@ import typer
 
 from {{cookiecutter.project_slug}}.commands import users, items
 
-app = typer.Typer()
+typer.Typer(no_args_is_help=True)
 app.add_typer(users.app, name="users")
 app.add_typer(items.app, name="items")
 
