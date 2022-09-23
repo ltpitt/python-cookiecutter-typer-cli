@@ -65,18 +65,18 @@ $ pip install -e . -r requirements/dev.txt
 
 ## Take your CLI for a spin
 
-This Cookiecutter comes with two generic CLI commands, namely, `init` and `hello`.
+This Cookiecutter comes with two generic CLI commands, namely, `items` and `users`.
 
 > **NOTE**
 >
 > `<<cli_command>>` is the executable command you choose for your CLI during project setup.
 
 ```bash
-$ <<cli_command>> init
+$ <<cli_command>> items
 ```
 
 ```bash
-$ <<cli_command>> hello
+$ <<cli_command>> users
 ```
 
 ### Test with Docker
