@@ -94,7 +94,7 @@ $ make docker-image
 2. Run the command inside the container.
 
 ```bash
-$ docker-run --rm <<cli_command>> init
+$ docker-run --rm <<cli_command>> --help
 ```
 
 ## Documentation
