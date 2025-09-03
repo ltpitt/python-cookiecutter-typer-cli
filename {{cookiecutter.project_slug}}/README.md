@@ -63,20 +63,23 @@ This CLI tool provides configuration management capabilities with a clean, moder
 
 ## Development
 
+### Prerequisites
+
+This project uses [Poetry](https://python-poetry.org/) for dependency management. Install Poetry first:
+
+```bash
+curl -sSL https://install.python-poetry.org | python3 -
+```
+
 ### Setup
 
-1. **Create virtual environment**:
-   ```bash
-   make venv
-   source venv/bin/activate
-   ```
-
-2. **Install dependencies**:
+1. **Install dependencies**:
    ```bash
    make install
    ```
+   This installs the package and all development dependencies using Poetry.
 
-3. **Install pre-commit hooks**:
+2. **Install pre-commit hooks**:
    ```bash
    make pre-commit
    ```
@@ -87,6 +90,12 @@ Run the comprehensive test suite:
 
 ```bash
 make test
+```
+
+Or run tests directly with Poetry:
+
+```bash
+poetry run pytest -vvv
 ```
 
 Tests cover:
@@ -108,13 +117,19 @@ Tests cover:
    ```bash
    make serve-docs
    ```
+   Or run directly with Poetry:
+   ```bash
+   poetry run mkdocs serve -f docs/mkdocs.yml
+   ```
 
 3. **View documentation**: Open http://localhost:8000
 
 ### Code Quality
 
-- **Format code**: `make format`
-- **Check formatting**: `make check`
+- **Format code**: `make format` or `poetry run black .`
+- **Check formatting**: `make check` or `poetry run black --check --diff .`
+- **Run linting**: `poetry run flake8`
+- **Type checking**: `poetry run mypy .`
 - **Clean artifacts**: `make clean`
 
 ### Docker Testing
@@ -148,8 +163,13 @@ Test the CLI in a clean container environment:
    ```bash
    make distributions
    ```
+   This builds the package using Poetry.
 
 2. **Upload to PyPI**:
+   ```bash
+   poetry publish
+   ```
+   Or use twine:
    ```bash
    twine upload dist/*
    ```
@@ -168,6 +188,7 @@ The generated package includes:
 
 Built with modern Python CLI best practices:
 
+- **[Poetry](https://python-poetry.org/)** - Modern dependency management
 - **[Typer](https://typer.tiangolo.com/)** - Type-based CLI framework
 - **[Rich](https://rich.readthedocs.io/)** - Beautiful terminal output
 - **[Pytest](https://pytest.org/)** - Reliable testing framework

@@ -15,34 +15,34 @@ clean: # remove python temp files
 	@find . -name '__pycache__' -delete
 
 test: # run pytest in verbose mode
-	@pytest -vvv
+	@poetry run pytest -vvv
 
 venv: # create a virtual env
 	@python -m venv venv
 
 format: # format all files using black
-	@black .
+	@poetry run black .
 
 check: # diff changes to be made by black
-	@black --check --diff .
+	@poetry run black --check --diff .
 
 install: # install app dependencies for development
-	@pip install -e . -r requirements/dev.txt
+	@poetry install --with dev,docs,test
 
 pre-commit: # install pre-commit hooks
 	@echo -e "\nInstalling pre-commit hook..."
-	@pre-commit install
+	@poetry run pre-commit install
 
 docs: # Install documentation related dependencies.
-	@pip install -r requirements/docs.txt
+	@poetry install --with docs
 
 serve-docs: # serve docs on localhost
-	@mkdocs serve -f docs/mkdocs.yml
+	@poetry run mkdocs serve -f docs/mkdocs.yml
 
 distributions: # create distribution wheel and zip for PyPI
-	@pip install -r requirements/publish.txt
-	@python setup.py sdist bdist_wheel
-	@echo "Use `twine upload dist/*` to upload to PyPI"
+	@poetry install --with publish
+	@poetry build
+	@echo "Use \`poetry publish\` or \`poetry run twine upload dist/*\` to upload to PyPI"
 
 docker-image:
 	@docker build -t {{cookiecutter.cli_command.strip().lower().replace(' ', '_').replace('-', '_')}} .
