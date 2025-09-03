@@ -3,28 +3,14 @@
 
 version: 2
 updates:
-  # Update pip dependencies
+  # Update Poetry dependencies
   - package-ecosystem: "pip"
-    directory: "/requirements"
+    directory: "/"
     schedule:
       interval: "weekly"
       day: "monday"
       time: "09:00"
     open-pull-requests-limit: 10
-    assignees:
-      - "{{cookiecutter.author.strip().lower().replace(' ', '')}}"
-    commit-message:
-      prefix: "deps"
-      include: "scope"
-
-  # Update main pip dependencies from setup.py
-  - package-ecosystem: "pip"
-    directory: "/"
-    schedule:
-      interval: "weekly"
-      day: "monday" 
-      time: "09:00"
-    open-pull-requests-limit: 5
     assignees:
       - "{{cookiecutter.author.strip().lower().replace(' ', '')}}"
     commit-message:
