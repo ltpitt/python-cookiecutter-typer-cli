@@ -6,6 +6,7 @@
 
 - [x] Containerization
 - [x] Pre-commit hooks
+- [x] Dependabot configuration
 - [x] typer
 - [x] rich
 - [x] shellingham
