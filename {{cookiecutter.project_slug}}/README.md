@@ -14,6 +14,16 @@ This CLI tool provides configuration management capabilities with a clean, moder
 - **Comprehensive Testing**: Full test suite with pytest
 - **Professional Documentation**: Auto-generated docs with MkDocs
 
+## Important: Poetry Version
+
+To avoid compatibility errors (such as TypeError related to canonicalize_version), ensure you are using an up-to-date version of Poetry:
+
+   ```bash
+   pip install --upgrade poetry
+   ```
+
+If you encounter installation issues, upgrading Poetry usually resolves them.
+
 ## Quick Start
 
 1. **Installation**: Install the package in development mode
