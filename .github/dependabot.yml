@@ -1,50 +1,8 @@
 # Dependabot configuration for python-cookiecutter-typer-cli
-# This keeps the cookiecutter template dependencies up to date
+# This keeps the cookiecutter template repository dependencies up to date
 
 version: 2
 updates:
-  # Update pip dependencies in the cookiecutter template requirements
-  - package-ecosystem: "pip"
-    directory: "/{{cookiecutter.project_slug}}/requirements"
-    schedule:
-      interval: "weekly"
-      day: "monday"
-      time: "09:00"
-    open-pull-requests-limit: 10
-    reviewers:
-      - "ltpitt"
-    commit-message:
-      prefix: "deps"
-      include: "scope"
-
-  # Update main pip dependencies from setup.py in the template
-  - package-ecosystem: "pip"
-    directory: "/{{cookiecutter.project_slug}}"
-    schedule:
-      interval: "weekly"
-      day: "monday"
-      time: "09:00"
-    open-pull-requests-limit: 5
-    reviewers:
-      - "ltpitt"
-    commit-message:
-      prefix: "deps"
-      include: "scope"
-
-  # Update Docker dependencies in the cookiecutter template
-  - package-ecosystem: "docker"
-    directory: "/{{cookiecutter.project_slug}}"
-    schedule:
-      interval: "weekly"
-      day: "monday"
-      time: "09:00"
-    open-pull-requests-limit: 5
-    reviewers:
-      - "ltpitt"
-    commit-message:
-      prefix: "docker"
-      include: "scope"
-
   # Update GitHub Actions if any are added in the future
   - package-ecosystem: "github-actions"
     directory: "/"
