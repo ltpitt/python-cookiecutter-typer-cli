@@ -56,7 +56,7 @@ secretstorage==3.3.3
     # via keyring
 twine==6.1.0
     # via -r requirements/publish.in
-urllib3==2.3.0
+urllib3==2.5.0
     # via requests
 wheel==0.45.1
     # via -r requirements/publish.in
