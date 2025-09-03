@@ -5,7 +5,4 @@ pre-commit
 tox
 flake8
 black
-typer
-typing-extensions
-rich
-shellingham 
+mypy

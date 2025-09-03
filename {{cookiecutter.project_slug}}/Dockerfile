@@ -1,9 +1,9 @@
-FROM python:3.8-slim-buster
+FROM python:3.12-slim
 
 COPY . /app
 
 WORKDIR /app
 
-RUN python setup.py develop
+RUN pip install --no-cache-dir -e .
 
 ENTRYPOINT [ "{{cookiecutter.cli_command.strip().lower().replace(' ', '_').replace('-', '_')}}" ]
