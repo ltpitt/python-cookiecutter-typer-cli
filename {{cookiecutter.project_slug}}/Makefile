@@ -17,8 +17,13 @@ clean: # remove python temp files
 test: # run pytest in verbose mode
 	@poetry run pytest -vvv
 
-venv: # create a virtual env
+create-venv:  # create and initialize virtual env
 	@python -m venv venv
+	@. venv/bin/activate && python -m pip install --upgrade pip
+	@echo ""
+	@echo "Virtual environment created. To activate it, run:"
+	@echo "On macOS/Linux: run 'source venv/bin/activate'"
+	@echo "On Windows: run 'venv\\bin\\activate.ps1' or run 'venv\\bin\activate.bat'"
 
 format: # format all files using black
 	@poetry run black .
@@ -27,7 +32,7 @@ check: # diff changes to be made by black
 	@poetry run black --check --diff .
 
 install: # install app dependencies for development
-	@poetry install --with dev,docs,test
+	@python -m pip install poetry && poetry install --with dev,docs,test
 
 pre-commit: # install pre-commit hooks
 	@echo -e "\nInstalling pre-commit hook..."
@@ -45,7 +50,7 @@ distributions: # create distribution wheel and zip for PyPI
 	@echo "Use \`poetry publish\` or \`poetry run twine upload dist/*\` to upload to PyPI"
 
 docker-image:
-	@docker build -t {{cookiecutter.cli_command.strip().lower().replace(' ', '_').replace('-', '_')}} .
+	@docker build -t acli .
 
 help: # Show this help
 	@egrep -h '\s#\s' $(MAKEFILE_LIST) | sort | awk 'BEGIN {FS = ":.*?# "}; {printf "\033[36m%-20s\033[0m %s\n", $$1, $$2}'
