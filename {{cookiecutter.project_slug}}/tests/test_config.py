@@ -27,7 +27,7 @@ def test_config_help():
     """Test that the config help command works."""
     result = runner.invoke(app, ["config", "--help"])
     assert result.exit_code == 0
-    assert "Manage configuration settings" in result.output
+    assert "manage configuration settings" in result.output
 
 
 class TestConfigCommand:
