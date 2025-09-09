@@ -2,7 +2,7 @@
 
 ![Come to the dark side... We have cookies!](https://raw.githubusercontent.com/ltpitt/python-cookiecutter-typer-cli/master/darth_vader_cookies.jpg)
 
-## Comes with:
+## Generated projects come with:
 
 - [x] Containerization
 - [x] Pre-commit hooks
