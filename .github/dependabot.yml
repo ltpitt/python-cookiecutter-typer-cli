@@ -1,7 +1,7 @@
 # Dependabot configuration for python-cookiecutter-typer-cli
 # This keeps the cookiecutter template repository dependencies up to date
+# No direct dependencies to update in the main template repository
+# Dependencies are managed in the generated project template under {{cookiecutter.project_slug}}/
 
 version: 2
 updates: []
-  # No direct dependencies to update in the main template repository
-  # Dependencies are managed in the generated project template under {{cookiecutter.project_slug}}/
